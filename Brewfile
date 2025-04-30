@@ -1,0 +1,7 @@
+cask "iterm2"
+cask "jumpcut"
+cask "spotify"
+cask "visual-studio-code"
+cask "vlc"
+cask "whatsapp"
+vscode "shd101wyy.markdown-preview-enhanced"
