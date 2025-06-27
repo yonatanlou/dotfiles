@@ -19,4 +19,10 @@ echo "Installing VSCode extensions..."
 echo "Applying macOS preferences..."
 ./macos.sh
 
+echo "Linking scripts from ./bin to ~/bin..."
+mkdir -p ~/bin
+for file in ./bin/*; do
+  ln -sf "$PWD/$file" ~/bin/
+done
+
 echo "✅ Setup complete!"
