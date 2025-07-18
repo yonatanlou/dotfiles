@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# Copy .claude folder from dotfiles to current directory
+# Usage: claude-init [target-directory]
+
+DOTFILES_CLAUDE="$HOME/dev/dotfiles/.claude"
+TARGET_DIR="${1:-.}"
+
+if [ ! -d "$DOTFILES_CLAUDE" ]; then
+    echo "Error: .claude folder not found in dotfiles at $DOTFILES_CLAUDE"
+    exit 1
+fi
+
+if [ -d "$TARGET_DIR/.claude" ]; then
+    echo "Warning: .claude folder already exists in $TARGET_DIR"
+    read -p "Overwrite? (y/N): " -n 1 -r
+    echo
+    if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+        echo "Cancelled"
+        exit 0
+    fi
+    rm -rf "$TARGET_DIR/.claude"
+fi
+
+cp -r "$DOTFILES_CLAUDE" "$TARGET_DIR/"
+echo "✅ Copied .claude folder to $TARGET_DIR"
