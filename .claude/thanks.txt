@@ -1,0 +1,2 @@
+Thanks to https://harperreed.com/.
+and https://github.com/obra/dotfiles/tree/main/.claude/commands
