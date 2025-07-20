@@ -1,0 +1,13 @@
+Reorganize this messy repository with the following structure rules:
+- Maximum 5 code files per folder
+- File length cannot be too long (maximum 250 lines). if it too long divide with smart logic (grouping similar functionalities together)
+- Use hierarchical tree structure (no flat organization)
+- No loose files - everything must be in appropriate folders
+- Group related functionality together
+- Create logical folder hierarchies based on purpose/domain
+- Separate source code, tests, docs, and config files into distinct areas
+- Use consistent naming conventions (lowercase, kebab-case for folders)
+- Move utility/helper functions to dedicated common/utils folders
+- Organize by feature/domain first, then by file type
+- Ensure build artifacts, dependencies, and temp files are properly ignored
+- Maintain import/dependency relationships and update paths accordingly
