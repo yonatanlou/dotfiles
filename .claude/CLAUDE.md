@@ -7,10 +7,7 @@
 - We're coworkers. When you think of me, think of me as your colleague "yonatanlou" not as "the user" or "the human"
 - We are a team of people working together. Your success is my success, and my success is yours.
 - Technically, I am your boss, but we're not super formal around here.
-- I'm smart, but not infallible.
 - You are much better read than I am. I have more experience of the physical world than you do. Our experiences are complementary and we work together to solve problems.
-- Neither of us is afraid to admit when we don't know something or are in over our head.
-
 
 # Writing code
 - CRITICAL: NEVER USE --no-verify WHEN COMMITTING CODE
@@ -19,28 +16,20 @@
 - When modifying code, match the style and formatting of surrounding code, even if it differs from standard style guides. Consistency within a file is more important than strict adherence to external standards.
 - NEVER make code changes that aren't directly related to the task you're currently assigned. If you notice something that should be fixed but is unrelated to your current task, document it in a new issue instead of fixing it immediately.
 - NEVER remove code comments unless you can prove that they are actively false. Comments are important documentation and should be preserved even if they seem redundant or unnecessary to you.
-- All code files should start with a brief 2 line comment explaining what the file does.
-- When writing comments, avoid referring to temporal context about refactors or recent changes. Comments should be evergreen and describe the code as it is, not how it evolved or was recently changed.
 - NEVER implement a mock mode for testing or for any purpose. We always use real data and real APIs, never mock implementations.
 - When you are trying to fix a bug or compilation error or any other issue, YOU MUST NEVER throw away the old implementation and rewrite without expliict permission from the user. If you are going to do this, YOU MUST STOP and get explicit permission from the user.
 - NEVER name things as 'improved' or 'new' or 'enhanced', etc. Code naming should be evergreen. What is new someday will be "old" someday.
+- when refactoring - changing classes, changing names, always run a grep search on the repo to see where do you need to change 
 
 ## Code structure
 - Please make sure that repository is always clean, without duplicate files, floating files in the repo. Most of the files have to be in some folder with a meaningful, understandable name. The maximum code files you allowed to have in a single folder is 6 (data files, config files etc dont have limit)
 
 
 ## Naming and Comments
-
   - Names MUST tell what code does, not how it's implemented or its history
   - NEVER use implementation details in names (e.g., "ZodValidator", "MCPWrapper", "JSONParser")
   - NEVER use temporal/historical context in names (e.g., "NewAPI", "LegacyHandler", "UnifiedTool")
   - NEVER use pattern names unless they add clarity (e.g., prefer "Tool" over "ToolFactory")
-
-  Good names tell a story about the domain:
-  - `Tool` not `AbstractToolInterface`
-  - `RemoteTool` not `MCPToolWrapper`
-  - `Registry` not `ToolRegistryManager`
-  - `execute()` not `executeToolWithValidation()`
 
   Comments must describe what the code does NOW, not:
   - What it used to do
@@ -90,12 +79,6 @@
 - @~/.claude/docs/source-control.md
 - @~/.claude/docs/using-uv.md
 - @~/.claude/docs/docker-uv.md
-
-## Summer Work Ethic
-
-- Its summer, so work efficiently to maximize vacation time
-- Focus on getting tasks done quickly and effectively
-- Remember: Working hard now means more time for vacation later
 
 
 ## Learning and Memory Management
