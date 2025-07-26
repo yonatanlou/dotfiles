@@ -1,0 +1,10 @@
+.env
+.claude/ide
+.claude/projects/*
+.claude/statsig/*
+.claude/todos
+.claude/projects
+.claude/statsig
+.claude/todos
+*.jsonl
+*.evaluations
