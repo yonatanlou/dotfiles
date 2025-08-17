@@ -15,3 +15,15 @@ sudo scutil --set ComputerName "yonatanlou"
 sudo scutil --set HostName "yonatanlou"
 sudo scutil --set LocalHostName "yonatanlou"
 sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "yonatanlou"
+
+# show Library folder
+chflags nohidden ~/Library
+
+# show hidden files
+defaults write com.apple.finder AppleShowAllFiles YES
+
+# add pathbar to title
+defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
+
+# restart finder
+killall Finder;

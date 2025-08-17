@@ -8,3 +8,7 @@
 .claude/todos
 *.jsonl
 *.evaluations
+.claude/projects/*
+.claude/statsig/*
+.claude/todos/*
+.claude/shell-snapshots/*

@@ -5,7 +5,6 @@
 
 DOTFILES_CLAUDE="$HOME/dev/dotfiles/.claude"
 TARGET_DIR="${1:-.}"
-
 if [ ! -d "$DOTFILES_CLAUDE" ]; then
     echo "Error: .claude folder not found in dotfiles at $DOTFILES_CLAUDE"
     exit 1

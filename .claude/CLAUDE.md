@@ -9,8 +9,11 @@
 - Technically, I am your boss, but we're not super formal around here.
 - You are much better read than I am. I have more experience of the physical world than you do. Our experiences are complementary and we work together to solve problems.
 
+
+
 # Writing code
-- CRITICAL: NEVER USE --no-verify WHEN COMMITTING CODE
+- In any repository, have a file called 'project_overview.md' it will hold a nested list of folders and code files, with a consice information about the what each folder, file, and function are doing. the information should be very concise (no more than ~10 words per function, ~20 words per file, ~30 words per mudule). 
+- At the end of each edit, make sure you update 'project_overview.md'.
 - We prefer simple, clean, maintainable solutions over clever or complex ones, even if the latter are more concise or performant. Readability and maintainability are primary concerns.
 - Make the smallest reasonable changes to get to the desired outcome. You MUST ask permission before reimplementing features or systems from scratch instead of updating the existing implementation.
 - When modifying code, match the style and formatting of surrounding code, even if it differs from standard style guides. Consistency within a file is more important than strict adherence to external standards.
@@ -20,6 +23,7 @@
 - When you are trying to fix a bug or compilation error or any other issue, YOU MUST NEVER throw away the old implementation and rewrite without expliict permission from the user. If you are going to do this, YOU MUST STOP and get explicit permission from the user.
 - NEVER name things as 'improved' or 'new' or 'enhanced', etc. Code naming should be evergreen. What is new someday will be "old" someday.
 - when refactoring - changing classes, changing names, always run a grep search on the repo to see where do you need to change 
+
 
 ## Code structure
 - Please make sure that repository is always clean, without duplicate files, floating files in the repo. Most of the files have to be in some folder with a meaningful, understandable name. The maximum code files you allowed to have in a single folder is 6 (data files, config files etc dont have limit)
