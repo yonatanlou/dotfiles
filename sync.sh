@@ -6,6 +6,7 @@ echo "🔄 Syncing dotfiles with current system configuration..."
 sync_brewfile() {
   echo "🍺 Updating Brewfile..."
   if [[ -f "./generate_brewfile.sh" ]]; then
+    chmod +x generate_brewfile.sh
     ./generate_brewfile.sh
     echo "✓ Brewfile updated"
   else
@@ -36,13 +37,7 @@ sync_vscode_config() {
     echo "⚠️  VS Code keybindings.json not found"
   fi
   
-  # Update extensions list
-  if command -v code &> /dev/null; then
-    code --list-extensions > "./vscode/extensions.txt"
-    echo "✓ Updated VS Code extensions list"
-  else
-    echo "⚠️  VS Code CLI not found, cannot update extensions list"
-  fi
+
 }
 
 # Main execution

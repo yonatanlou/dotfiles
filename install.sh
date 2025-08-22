@@ -55,6 +55,20 @@ setup_vscode_config() {
   fi
 }
 
+link_zshrc() {
+  echo "🔗 Linking .zshrc..."
+  
+  # Install Oh My Zsh if not already installed
+  if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  fi
+  
+  if [[ -f "./.zshrc" ]]; then
+    ln -sf "$PWD/.zshrc" "$HOME/.zshrc"
+    echo "✓ Linked .zshrc"
+  fi
+}
+
 show_help() {
   echo "Usage: $0 [OPTIONS]"
   echo ""
@@ -65,6 +79,7 @@ show_help() {
   echo "  -s, --scripts  Link bin scripts only"
   echo "  -c, --claude   Link Claude configuration only"
   echo "  -v, --vscode   Setup VS Code configuration only"
+  echo "  -z, --zshrc    Link .zshrc only"
   echo "  -a, --all      Run all steps (default)"
   echo ""
   echo "Examples:"
@@ -73,6 +88,7 @@ show_help() {
   echo "  $0 -b -s        # Install brew packages and link scripts"
   echo "  $0 --claude     # Only link Claude configuration"
   echo "  $0 --vscode     # Only setup VS Code configuration"
+  echo "  $0 --zshrc      # Only link .zshrc"
 }
 
 # Parse command line arguments
@@ -81,6 +97,7 @@ RUN_MACOS=false
 RUN_SCRIPTS=false
 RUN_CLAUDE=false
 RUN_VSCODE=false
+RUN_ZSHRC=false
 RUN_ALL=true
 
 while [[ $# -gt 0 ]]; do
@@ -114,6 +131,11 @@ while [[ $# -gt 0 ]]; do
       RUN_ALL=false
       shift
       ;;
+    -z|--zshrc)
+      RUN_ZSHRC=true
+      RUN_ALL=false
+      shift
+      ;;
     -a|--all)
       RUN_ALL=true
       shift
@@ -133,6 +155,7 @@ if [[ "$RUN_ALL" == true ]]; then
   link_bin_scripts
   link_claude_config
   setup_vscode_config
+  link_zshrc
 else
   if [[ "$RUN_BREW" == true ]]; then
     install_homebrew
@@ -152,6 +175,10 @@ else
   
   if [[ "$RUN_VSCODE" == true ]]; then
     setup_vscode_config
+  fi
+  
+  if [[ "$RUN_ZSHRC" == true ]]; then
+    link_zshrc
   fi
 fi
 
