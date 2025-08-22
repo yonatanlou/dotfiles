@@ -37,6 +37,24 @@ link_claude_config() {
   ln -sf "$PWD/.claude" "$HOME/.claude"
 }
 
+setup_vscode_config() {
+  echo "💻 Setting up VS Code configuration..."
+  
+  # Create VS Code User directory if it doesn't exist
+  mkdir -p "$HOME/Library/Application Support/Code/User"
+  
+  # Copy settings and keybindings
+  if [[ -f "./vscode/settings.json" ]]; then
+    cp "./vscode/settings.json" "$HOME/Library/Application Support/Code/User/settings.json"
+    echo "✓ Copied VS Code settings"
+  fi
+  
+  if [[ -f "./vscode/keybindings.json" ]]; then
+    cp "./vscode/keybindings.json" "$HOME/Library/Application Support/Code/User/keybindings.json"
+    echo "✓ Copied VS Code keybindings"
+  fi
+}
+
 show_help() {
   echo "Usage: $0 [OPTIONS]"
   echo ""
@@ -46,6 +64,7 @@ show_help() {
   echo "  -m, --macos    Apply macOS preferences only"
   echo "  -s, --scripts  Link bin scripts only"
   echo "  -c, --claude   Link Claude configuration only"
+  echo "  -v, --vscode   Setup VS Code configuration only"
   echo "  -a, --all      Run all steps (default)"
   echo ""
   echo "Examples:"
@@ -53,6 +72,7 @@ show_help() {
   echo "  $0 --scripts    # Only link bin scripts"
   echo "  $0 -b -s        # Install brew packages and link scripts"
   echo "  $0 --claude     # Only link Claude configuration"
+  echo "  $0 --vscode     # Only setup VS Code configuration"
 }
 
 # Parse command line arguments
@@ -60,6 +80,7 @@ RUN_BREW=false
 RUN_MACOS=false
 RUN_SCRIPTS=false
 RUN_CLAUDE=false
+RUN_VSCODE=false
 RUN_ALL=true
 
 while [[ $# -gt 0 ]]; do
@@ -88,6 +109,11 @@ while [[ $# -gt 0 ]]; do
       RUN_ALL=false
       shift
       ;;
+    -v|--vscode)
+      RUN_VSCODE=true
+      RUN_ALL=false
+      shift
+      ;;
     -a|--all)
       RUN_ALL=true
       shift
@@ -106,6 +132,7 @@ if [[ "$RUN_ALL" == true ]]; then
   apply_macos_preferences
   link_bin_scripts
   link_claude_config
+  setup_vscode_config
 else
   if [[ "$RUN_BREW" == true ]]; then
     install_homebrew
@@ -121,6 +148,10 @@ else
   
   if [[ "$RUN_CLAUDE" == true ]]; then
     link_claude_config
+  fi
+  
+  if [[ "$RUN_VSCODE" == true ]]; then
+    setup_vscode_config
   fi
 fi
 

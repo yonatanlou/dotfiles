@@ -1,0 +1,11 @@
+{
+    "editor.fontSize": 14,
+    "editor.fontFamily": "Menlo, Monaco, 'Courier New', monospace",
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+    "editor.wordWrap": "on",
+    "files.autoSave": "onFocusChange",
+    "workbench.colorTheme": "Default Dark+",
+    "terminal.integrated.fontSize": 14,
+    "python.defaultInterpreterPath": "python3"
+}
