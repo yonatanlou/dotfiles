@@ -20,5 +20,7 @@ alias -g zshconf="open ~/.zshrc"
 
 source $ZSH/oh-my-zsh.sh
 
-
+alias cursor="/Applications/Cursor.app/Contents/Resources/app/bin/cursor"
+alias zrc='subl ~/.zshrc'
+alias src='source ~/.zshrc'
 
