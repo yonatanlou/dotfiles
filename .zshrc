@@ -23,4 +23,20 @@ source $ZSH/oh-my-zsh.sh
 alias cursor="/Applications/Cursor.app/Contents/Resources/app/bin/cursor"
 alias zrc='subl ~/.zshrc'
 alias src='source ~/.zshrc'
+alias claude-commands='subl ~/.claude/commands'
+export PATH="$HOME/.local/bin:$PATH"
+
+
+
+## python env stuff
+alias mkvenv='python3.11 -m venv .venv && source .venv/bin/activate'
+acvenv() {
+    if [ -f "./bin/activate" ]; then
+        source ./bin/activate
+    elif [ -f "./.venv/bin/activate" ]; then
+        source ./.venv/bin/activate
+    else
+        echo "No activation script found in this folder."
+    fi
+}
 
